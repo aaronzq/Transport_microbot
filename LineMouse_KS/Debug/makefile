@@ -18,7 +18,6 @@ ORDERED_OBJS += \
 "./Queue/Queue.obj" \
 "./TskAction/TskAction.obj" \
 "./TskIr/TskIr.obj" \
-"./TskMotor/Imu.obj" \
 "./TskMotor/MotorPwm.obj" \
 "./TskMotor/TskMotor.obj" \
 "./TskMotor/WheelEnc.obj" \
@@ -192,8 +191,8 @@ clean:
 	-$(RM) "Kalman\Kalman1Var.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-$(RM) "linemouse_chassis.d" 
-	-$(RM) "linemouse.obj" "linemouse_chassis.obj" "Flash\Flash.obj" "Kalman\Kalman1Var.obj" "Pid\Pid.obj" "Queue\Queue.obj" "TskAction\TskAction.obj" "TskIr\TskIr.obj" "TskMotor\Imu.obj" "TskMotor\MotorPwm.obj" "TskMotor\TskMotor.obj" "TskMotor\WheelEnc.obj" "TskSolver\TskSolver.obj" "TskTop\DbgUart.obj" "TskTop\TskTop.obj" 
-	-$(RM) "linemouse.d" "Flash\Flash.d" "Pid\Pid.d" "Queue\Queue.d" "TskAction\TskAction.d" "TskIr\TskIr.d" "TskMotor\Imu.d" "TskMotor\MotorPwm.d" "TskMotor\TskMotor.d" "TskMotor\WheelEnc.d" "TskSolver\TskSolver.d" "TskTop\DbgUart.d" "TskTop\TskTop.d" 
+	-$(RM) "linemouse.obj" "linemouse_chassis.obj" "Flash\Flash.obj" "Kalman\Kalman1Var.obj" "Pid\Pid.obj" "Queue\Queue.obj" "TskAction\TskAction.obj" "TskIr\TskIr.obj" "TskMotor\MotorPwm.obj" "TskMotor\TskMotor.obj" "TskMotor\WheelEnc.obj" "TskSolver\TskSolver.obj" "TskTop\DbgUart.obj" "TskTop\TskTop.obj" 
+	-$(RM) "linemouse.d" "Flash\Flash.d" "Pid\Pid.d" "Queue\Queue.d" "TskAction\TskAction.d" "TskIr\TskIr.d" "TskMotor\MotorPwm.d" "TskMotor\TskMotor.d" "TskMotor\WheelEnc.d" "TskSolver\TskSolver.d" "TskTop\DbgUart.d" "TskTop\TskTop.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -3,6 +3,9 @@
  *
  *  Created on: Aug 1, 2014
  *      Author: loywong
+ *  Edited on : June  , 2017
+ *  	Author: aaronzq
+ *
  */
 
 #include <xdc/std.h>
@@ -33,7 +36,7 @@
 
 #include "TskMotor.h"
 #include "MotorPwm.h"
-#include "Imu.h"
+//#include "Imu.h"
 #include "WheelEnc.h"
 
 #include "../Queue/Queue.h"
@@ -141,7 +144,7 @@ void task(UArg arg0, UArg arg1)
 
         LV = EncVel;
 
-        AV = (EncRVel - EncLVel) * (.5f / PP::W);  //edited Nov 5 2016 by wzq   for wrong setup of encoder
+        AV = (EncRVel - EncLVel) * (.5f / PP::W);
 
 
         DistanceAccL += EncLVel * PP::Ts;
@@ -154,7 +157,33 @@ void task(UArg arg0, UArg arg1)
         {
 
             // read dlv&dav from fifo
-            QMotor->De(desire); // dequeue, if empty desire will not change
+            QMotor->De(desire); // dequeue, if empty, desire will not change
+            if(Unit_rspEnable)
+			{
+				if (TskTop::secread<200)
+				{
+					desire.Velocity = 0.f;
+					desire.Omega = 0.f;
+				}
+				else if(TskTop::secread<1000)
+				{
+					if(TskTop::Lvtest)
+					{
+						desire.Velocity = 0.2f;
+						desire.Omega = 0.f;
+					}
+					else
+					{
+						desire.Velocity = 0.f;
+						desire.Omega = 0.5f;
+					}
+				}
+				else
+				{
+					desire.Velocity = 0.f;
+					desire.Omega = 0.f;
+				}
+			}
             CurrentV = desire.Velocity;
             lvPidOut = lvPid.Tick(desire.Velocity - LV);
             avPidOut = avPid.Tick(desire.Omega + OmgAdj - AV);
@@ -171,29 +200,6 @@ void task(UArg arg0, UArg arg1)
 				MotorPwmSetDuty(90, 30);
 				Servopwm=ServoPwmTest;
 				ServoPwmSetDuty(Servopwm);
-            }
-
-            if(Unit_rspEnable)
-            {
-            	if (TskTop::secread<9)
-				{
-            		MotorPwmSetDuty(0, 0);
-				}
-            	else if(TskTop::secread<1000)
-            	{
-            		if(TskTop::Lvtest)
-					{
-
-					}
-            		else
-            		{
-
-            		}
-            	}
-            	else
-            	{
-            		MotorPwmSetDuty(0, 0);
-            	}
             }
 
         }
