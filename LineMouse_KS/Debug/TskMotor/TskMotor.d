@@ -199,7 +199,7 @@ TskMotor/TskMotor.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/Tiva
 TskMotor/TskMotor.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_pwm.h
 TskMotor/TskMotor.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h
 TskMotor/TskMotor.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_types.h
-TskMotor/TskMotor.obj: C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h
+TskMotor/TskMotor.obj: C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h
 TskMotor/TskMotor.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/GPIO.h
 TskMotor/TskMotor.obj: ../TskMotor/TskMotor.h
 TskMotor/TskMotor.obj: ../TskMotor/../Queue/Queue.h
@@ -415,7 +415,7 @@ C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_pwm.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_types.h: 
-C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h: 
+C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/GPIO.h: 
 ../TskMotor/TskMotor.h: 
 ../TskMotor/../Queue/Queue.h: 

@@ -16,7 +16,7 @@ BIOS_INC  = -I"C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01
 
 TARGET_INC = -I"C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/"
 
-INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="C:/Users/AaronW/workspace_v6_2/LineMouse_KS" --include_path="C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_02_31/packages/ti/sysbios/posix" --include_path="E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include" 
+INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS" --include_path="C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_02_31/packages/ti/sysbios/posix" --include_path="E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include" 
 
 CC = E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/bin/armcl -c $(CCOPTS) -I E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include
 ASM = E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/bin/armcl -c $(CCOPTS) -I E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include

@@ -1,7 +1,7 @@
 # FIXED
 
 linemouse.obj: ../linemouse.cc
-linemouse.obj: C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h
+linemouse.obj: C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h
 linemouse.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS.h
 linemouse.obj: C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/std.h
 linemouse.obj: E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdarg.h
@@ -62,13 +62,13 @@ linemouse.obj: C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/runtime
 linemouse.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS__epilogue.h
 linemouse.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/package/BIOS_RtsGateProxy.h
 linemouse.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/GPIO.h
-linemouse.obj: C:/Users/AaronW/workspace_v6_2/LineMouse_KS/TskTop/TskTop.h
-linemouse.obj: C:/Users/AaronW/workspace_v6_2/LineMouse_KS/Debug/configPkg/../../TskMotor/MotorPwm.h
+linemouse.obj: C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/TskTop/TskTop.h
+linemouse.obj: C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/Debug/configPkg/../../TskMotor/MotorPwm.h
 linemouse.obj: ../Board.h
 linemouse.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/gpio.h
 
 ../linemouse.cc: 
-C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h: 
+C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS.h: 
 C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/std.h: 
 E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdarg.h: 
@@ -129,7 +129,7 @@ C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS__epilogue.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/package/BIOS_RtsGateProxy.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/GPIO.h: 
-C:/Users/AaronW/workspace_v6_2/LineMouse_KS/TskTop/TskTop.h: 
-C:/Users/AaronW/workspace_v6_2/LineMouse_KS/Debug/configPkg/../../TskMotor/MotorPwm.h: 
+C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/TskTop/TskTop.h: 
+C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/Debug/configPkg/../../TskMotor/MotorPwm.h: 
 ../Board.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/gpio.h: 

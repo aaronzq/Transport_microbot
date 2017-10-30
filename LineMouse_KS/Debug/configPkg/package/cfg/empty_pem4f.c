@@ -1869,7 +1869,7 @@ __FAR__ const xdc_SizeT ti_sysbios_utils_Load_Module_State_taskList__O = offseto
  *  Define absolute path prefix for this executable's
  *  configuration generated files.
  */
-xdc__META(__ASM__, "@(#)__ASM__ = C:/Users/AaronW/workspace_v6_2/LineMouse_KS/Debug/configPkg/package/cfg/empty_pem4f");
+xdc__META(__ASM__, "@(#)__ASM__ = C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/Debug/configPkg/package/cfg/empty_pem4f");
 
 /*
  *  ======== __ISA__ ========

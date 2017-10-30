@@ -1,7 +1,7 @@
 # FIXED
 
 TskTop/DbgUart.obj: ../TskTop/DbgUart.cc
-TskTop/DbgUart.obj: C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h
+TskTop/DbgUart.obj: C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h
 TskTop/DbgUart.obj: C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/runtime/System.h
 TskTop/DbgUart.obj: C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/std.h
 TskTop/DbgUart.obj: E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdarg.h
@@ -183,7 +183,7 @@ TskTop/DbgUart.obj: E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
 TskTop/DbgUart.obj: E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/linkage.h
 
 ../TskTop/DbgUart.cc: 
-C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h: 
+C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h: 
 C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/runtime/System.h: 
 C:/ti/tirex-content/xdctools_3_32_00_06_core/packages/xdc/std.h: 
 E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdarg.h: 

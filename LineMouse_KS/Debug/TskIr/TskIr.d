@@ -233,7 +233,7 @@ TskIr/TskIr.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C
 TskIr/TskIr.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_sysctl.h
 TskIr/TskIr.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_gpio.h
 TskIr/TskIr.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_adc.h
-TskIr/TskIr.obj: C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h
+TskIr/TskIr.obj: C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h
 TskIr/TskIr.obj: ../TskIr/TskIr.h
 TskIr/TskIr.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Mailbox.h
 TskIr/TskIr.obj: ../TskIr/../TskMotor/TskMotor.h
@@ -483,7 +483,7 @@ C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_sysctl.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_gpio.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_adc.h: 
-C:/Users/AaronW/workspace_v6_2/LineMouse_KS/linemouse_chassis.h: 
+C:/Users/AaronW/Documents/GitHub/Transport_microbot/LineMouse_KS/linemouse_chassis.h: 
 ../TskIr/TskIr.h: 
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Mailbox.h: 
 ../TskIr/../TskMotor/TskMotor.h: 
