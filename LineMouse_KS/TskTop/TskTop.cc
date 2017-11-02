@@ -44,7 +44,7 @@ namespace TskTop
 {
 
 const int tskPrio = 4;
-const int tskStkSize = 1024; //1024
+const int tskStkSize = 2560; //1024
 
 Task_Params tskParams;
 Task_Handle tsk;
@@ -53,7 +53,7 @@ Task_Handle tsk;
 char dbgStr[80];
 char database[1000][10];
 volatile int secread=0;
-volatile bool Lvtest = true;
+volatile bool Lvtest = false;
 
 volatile MouseMode::ModeType Mode;
 volatile bool Execute=false;
@@ -149,7 +149,7 @@ void unit_rsptest()
 		{
 			if(Lvtest)
 			{
-				sprintf(database[secread], "%7.4f\n",TskMotor::LV);
+				sprintf(database[secread], "%7.4f\n",TskMotor::EncVel);
 			}
 			else
 			{
@@ -160,8 +160,8 @@ void unit_rsptest()
 		else if(secread == 1000)
 		{
 			secread++;
-			DbgUartPutLine( "LV Unit_response result: \n", true);
-//			DbgUartPutLine( "AV Unit_response result: \n", true);
+//			DbgUartPutLine( "LV Unit_response result: \n", true);
+			DbgUartPutLine( "AV Unit_response result: \n", true);
 			for(int count=0;count<1000;count++)
 			{
 				DbgUartPutLine(database[count], true);

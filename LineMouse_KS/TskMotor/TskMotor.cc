@@ -49,13 +49,13 @@ namespace TskMotor
 {
 
 
-const float lvPidP = 191.519075602699f;
-const float lvPidI = 3300.4379543161f;
-const float lvPidD = 0.f;//-1.79891050754587f;
-const float lvPidN = 0.f;//688.458615803393f;
+const float lvPidP = 751.519075602699f;
+const float lvPidI = 45000.4379543161f;
+const float lvPidD = -0.39891050754587f;
+const float lvPidN = 688.458615803393f;
 
-const float avPidP = 3.46875141538602f;
-const float avPidI = 76.762778295071f;
+const float avPidP = 55.46875141538602f;
+const float avPidI = 1200.762778295071f;
 const float avPidD = 0.f;//-0.065326709136153f;
 const float avPidN = 0.f;//192.064591913073f;
 
@@ -144,7 +144,7 @@ void task(UArg arg0, UArg arg1)
 
         LV = EncVel;
 
-        AV = (EncRVel - EncLVel) * (.5f / PP::W);
+        AV = (EncRVel - EncLVel)/PP::W ;
 
 
         DistanceAccL += EncLVel * PP::Ts;
@@ -169,13 +169,13 @@ void task(UArg arg0, UArg arg1)
 				{
 					if(TskTop::Lvtest)
 					{
-						desire.Velocity = 0.2f;
+						desire.Velocity = 0.3f;
 						desire.Omega = 0.f;
 					}
 					else
 					{
 						desire.Velocity = 0.f;
-						desire.Omega = 0.5f;
+						desire.Omega = 2.f;
 					}
 				}
 				else

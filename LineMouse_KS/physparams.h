@@ -58,9 +58,8 @@ const float g =      9.80665f;
 // gravity center height
 const float H =      0.005f;
 
-// half of distance between 2 tires
-//const float W =      0.032f;
-const float W =      (0.0735f/2.f);
+// distance between 2 tires
+const float W =      0.0735f;
 // wheel
 //const float RWheel = 0.01175f;
 const float RWheel = 0.017f;
