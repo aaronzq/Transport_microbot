@@ -15,7 +15,8 @@ extern Semaphore_Handle SemIrTick;
 extern Semaphore_Handle SemActTick;
 
 const float EncRes = 2048.f;
-const float EncUnit = PP::RWheel * 2.f * 3.1415926536f / EncRes / PP::Ts;
+const float EncUnitL = PP::RWheelL * 2.f * 3.1415926536f / EncRes / PP::Ts;
+const float EncUnitR = PP::RWheelR * 2.f * 3.1415926536f / EncRes / PP::Ts;
 const float GearRatio =15.f/100.f;
 
 void WheelEncInit();

@@ -55,7 +55,7 @@ const float lvPidD = -0.39891050754587f;
 const float lvPidN = 688.458615803393f;
 
 const float avPidP = 55.46875141538602f;
-const float avPidI = 1200.762778295071f;
+const float avPidI = 950.762778295071f;
 const float avPidD = 0.f;//-0.065326709136153f;
 const float avPidN = 0.f;//192.064591913073f;
 

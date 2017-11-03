@@ -44,7 +44,7 @@ namespace TskTop
 {
 
 const int tskPrio = 4;
-const int tskStkSize = 2560; //1024
+const int tskStkSize = 1024; //1024
 
 Task_Params tskParams;
 Task_Handle tsk;
