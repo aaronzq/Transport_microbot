@@ -7,6 +7,6 @@ And we employ the RTOS from TI to smartly control this robot car. Finally we mak
 
 ## What it consists of
 This repository includes:
-1. the RTOS project (built in Code Compose Studio(CCS) from TI)
-2. the PCB project (built in Altium Designer)
-3. the 3D print components (drawn in SolidWorks)
+1. the RTOS project (built in Code Compose Studio(CCS) from TI) --> Linemouse_KS
+2. the PCB project (built in Altium Designer) --> Superminicar
+3. the 3D print components (drawn in SolidWorks) -->3D
