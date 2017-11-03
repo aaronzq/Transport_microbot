@@ -10,3 +10,13 @@ This repository includes:
 1. the RTOS project (built in Code Compose Studio(CCS) from TI) --> Linemouse_KS
 2. the PCB project (built in Altium Designer) --> Superminicar
 3. the 3D print components (drawn in SolidWorks) -->3D
+
+## What it can do
+Simple. Trail track using a set of basic motion and direction feedback from the IR sensors. See [Tiny Vehicle](aaeonzq.github.io)
+
+## What else you need
+1. electronic components.(according to the components list       __*todo*__)
+2. PCB manufacture
+3. CCS environment with RTOS package
+4. 3D print tool
+5. playground with IR detectable border for vehicle
