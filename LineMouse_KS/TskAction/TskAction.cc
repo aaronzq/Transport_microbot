@@ -1,4 +1,4 @@
- 	 /*
+ /*
  * TskAction.cc
  *
  *  Created on: Nov 5th, 2016
@@ -51,7 +51,7 @@ Task_Handle tsk;
 Mailbox_Handle MbCmd;
 
 TskMotor::VelOmega desiresrc(0.0f,0.0f);
-const float OmgadjP = -2.5f;
+const float OmgadjP = -10.5f;
 
 inline void Wait4queue()
 {
@@ -110,15 +110,16 @@ void Enqueue_turn(float vel,bool isleft)
 	float time_beta = 0.839954983918006*PP::TurnRadius/vel;
 	int time_count_turn = (int)(time_beta*1000.f);
 	for (i=1;i<=time_count_turn;i++)
-
 	{
-		desiresrc.Omega = beta*i*0.001f*PP::TurnCompensateCoff;
+		if(isleft) desiresrc.Omega = beta*i*0.001f*PP::TurnCompensateCoffL;
+		else desiresrc.Omega = beta*i*0.001f*PP::TurnCompensateCoffR;
 		desiresrc.Velocity = vel;
 		TskMotor::QMotor->En(desiresrc);
 	}
 	for (i=1;i<=time_count_turn;i++)
 	{
-		desiresrc.Omega = beta*time_beta-beta*i*0.001f*PP::TurnCompensateCoff;
+		if(isleft) desiresrc.Omega = (beta*time_beta-beta*i*0.001f)*PP::TurnCompensateCoffL;
+		else desiresrc.Omega = (beta*time_beta-beta*i*0.001f)*PP::TurnCompensateCoffR;
 		desiresrc.Velocity = vel;
 		TskMotor::QMotor->En(desiresrc);
 	}
@@ -197,7 +198,7 @@ void Forward(float vel, float uni_path, bool left_side, bool border_detect, bool
 			}
 			else
 			{
-				TskMotor::OmgAdj = (-3.5f)*TskIr::IrYawR;
+				TskMotor::OmgAdj = OmgadjP*TskIr::IrYawR;
 			}
 		}
 		else
@@ -211,6 +212,7 @@ void Forward(float vel, float uni_path, bool left_side, bool border_detect, bool
 			if((ActDistance>PP::forward_border_detect_begin)&&(TskIr::IrBorder==true))
 			{
 				ClearQueue();
+				TskMotor::OmgAdj = 0.f;
 				break;
 			}
 		}
@@ -352,17 +354,22 @@ void Back(float turn_time)
 	{
 		if(i<=0.5*time_count_turnback)
 		{
-			desiresrc.Omega = alpha*i*0.001f*1.02f;
+			desiresrc.Omega = alpha*i*0.001f*1.f;
 			desiresrc.Velocity = 0.f;
 		}
 		else
 		{
-			desiresrc.Omega = (omega_max - alpha*(i-0.5*time_count_turnback)*0.001f)*1.02f;
+			desiresrc.Omega = (omega_max - alpha*(i-0.5*time_count_turnback)*0.001f)*1.f;
 			desiresrc.Velocity = 0.f;
 		}
 		TskMotor::QMotor->En(desiresrc);
 	}
-
+	desiresrc.Omega = 0.f;
+	desiresrc.Velocity = 0.f;
+	TskMotor::QMotor->En(desiresrc);
+	desiresrc.Omega = 0.f;
+	desiresrc.Velocity = 0.f;
+	TskMotor::QMotor->En(desiresrc);
 }
 
 
@@ -439,48 +446,25 @@ void ActionSelect(ActType::Action *Seq, unsigned char SeqNum)
 void Go_for_ball()
 {
 
-    ActType::Action Sequence[32];
+    ActType::Action Sequence[15];
     Sequence[0]=ActType::start_left_side;
     Sequence[1]=ActType::forward_left_side;
-    Sequence[2]=ActType::forward_left_side;
-    Sequence[3]=ActType::forward_left_side;
+    Sequence[2]=ActType::forward_left_side_border;
+    Sequence[3]=ActType::right_turn90;
     Sequence[4]=ActType::forward_left_side;
     Sequence[5]=ActType::forward_left_side;
     Sequence[6]=ActType::forward_left_side;
-    Sequence[7]=ActType::forward_right_side_border;
-    Sequence[8]=ActType::right_turn90;
-    Sequence[9]=ActType::forward_left_side;
+    Sequence[7]=ActType::forward_left_side;
+    Sequence[8]=ActType::forward_left_side_border;
+    Sequence[9]=ActType::right_turn90;
     Sequence[10]=ActType::forward_left_side;
     Sequence[11]=ActType::forward_left_side;
-    Sequence[12]=ActType::forward_left_side;
-    Sequence[13]=ActType::forward_left_side;
-    Sequence[14]=ActType::forward_left_side;
-    Sequence[15]=ActType::forward_left_side;
-    Sequence[16]=ActType::forward_left_side;
-    Sequence[17]=ActType::forward_left_side_border;
-    Sequence[18]=ActType::right_turn90;
-    Sequence[19]=ActType::forward_left_side;
-    Sequence[20]=ActType::forward_left_side;
-    Sequence[21]=ActType::forward_left_side;
-    Sequence[22]=ActType::forward_left_side;
-    Sequence[23]=ActType::forward_left_side;
-    Sequence[24]=ActType::left_turn180;
-    Sequence[25]=ActType::forward_left_side;
-    Sequence[26]=ActType::forward_left_side;
-    Sequence[27]=ActType::forward_left_side;
-    Sequence[28]=ActType::forward_left_side;
-    Sequence[29]=ActType::forward_left_side_border;
-//    Sequence[6]=ActType::right_turn90;
-//    Sequence[7]=ActType::forward_left_side;
-//    Sequence[8]=ActType::left_turn90;
-//    Sequence[9]=ActType::forward_left_side;
-//    Sequence[10]=ActType::left_turn90;
-//    Sequence[11]=ActType::forward_left_side;
-//    Sequence[12]=ActType::forward_left_side;
-    Sequence[30]=ActType::stop;
-    Sequence[31]=ActType::back;
+    Sequence[12]=ActType::forward_left_side_border;
+    Sequence[13]=ActType::stop;
+    Sequence[14]=ActType::back;
 
-    ActionSelect(Sequence,32);
+
+    ActionSelect(Sequence,15);
 
 }
 
@@ -488,6 +472,9 @@ void wait4ball()
 {
 	TskTop::LedColor::Type Indicator=TskTop::LedColor::Red;
 	TskTop::SetLeds(Indicator,Indicator);
+	desiresrc.Omega = 0.f;
+	desiresrc.Velocity = 0.f;
+	TskMotor::QMotor->En(desiresrc);
 	while(true)
 	{
 		Task_sleep(1000);
@@ -504,84 +491,33 @@ void wait4ball()
 
 void take_back_ball()
 {
-    ActType::Action Sequence[32];
+    ActType::Action Sequence[15];
     Sequence[0]=ActType::start_right_side;
-    Sequence[1]=ActType::forward_right_side_back;
-    Sequence[2]=ActType::forward_right_side_back;
-    Sequence[3]=ActType::forward_right_side_back;
-    Sequence[4]=ActType::right_turn180;
-    Sequence[5]=ActType::forward_right_side_back;
-    Sequence[6]=ActType::forward_right_side_back;
-    Sequence[7]=ActType::forward_right_side_back;
-    Sequence[8]=ActType::forward_right_side_back;
-    Sequence[9]=ActType::forward_right_side_back;
-    Sequence[10]=ActType::forward_right_side_border;
-    Sequence[11]=ActType::left_turn90;
-    Sequence[12]=ActType::forward_right_side;
-    Sequence[13]=ActType::forward_right_side;
-    Sequence[14]=ActType::forward_right_side;
-    Sequence[15]=ActType::forward_right_side;
-    Sequence[16]=ActType::forward_right_side;
-    Sequence[17]=ActType::forward_right_side;
-    Sequence[18]=ActType::forward_right_side;
-    Sequence[19]=ActType::forward_right_side;
-    Sequence[20]=ActType::forward_right_side_border;
-    Sequence[21]=ActType::left_turn90;
-    Sequence[22]=ActType::forward_right_side;
-    Sequence[23]=ActType::forward_right_side;
-    Sequence[24]=ActType::forward_right_side;
-    Sequence[25]=ActType::forward_right_side;
-    Sequence[26]=ActType::forward_right_side;
-    Sequence[27]=ActType::forward_right_side;
-    Sequence[28]=ActType::forward_right_side;
-    Sequence[29]=ActType::forward_right_side_border;
-    Sequence[30]=ActType::stop;
-    Sequence[31]=ActType::back;
+    Sequence[1]=ActType::forward_right_side;
+    Sequence[2]=ActType::forward_right_side_border;
+    Sequence[3]=ActType::left_turn90;
+    Sequence[4]=ActType::forward_right_side;
+    Sequence[5]=ActType::forward_right_side;
+    Sequence[6]=ActType::forward_right_side;
+    Sequence[7]=ActType::forward_right_side;
+    Sequence[8]=ActType::forward_right_side_border;
+    Sequence[9]=ActType::left_turn90;
+    Sequence[10]=ActType::forward_right_side;
+    Sequence[11]=ActType::forward_right_side;
+    Sequence[12]=ActType::forward_right_side_border;
+    Sequence[13]=ActType::stop;
+    Sequence[14]=ActType::back;
 
-    ActionSelect(Sequence,32);
-
-
-//    ActType::Action Sequence[31];
-//    Sequence[0]=ActType::start_right_side;
-//    Sequence[1]=ActType::forward_right_side;
-//    Sequence[2]=ActType::forward_right_side;
-//    Sequence[3]=ActType::forward_right_side;
-//    Sequence[4]=ActType::right_turn180;
-//    Sequence[5]=ActType::forward_right_side;
-//    Sequence[6]=ActType::forward_right_side;
-//    Sequence[7]=ActType::forward_right_side;
-//    Sequence[8]=ActType::forward_right_side;
-//    Sequence[9]=ActType::forward_right_side;
-//    Sequence[10]=ActType::forward_right_side_border;
-//    Sequence[11]=ActType::left_turn90;
-//    Sequence[12]=ActType::forward_right_side;
-//    Sequence[13]=ActType::forward_right_side;
-//    Sequence[14]=ActType::forward_right_side;
-//    Sequence[15]=ActType::forward_right_side;
-//    Sequence[16]=ActType::forward_right_side;
-//    Sequence[17]=ActType::forward_right_side;
-//    Sequence[18]=ActType::forward_right_side;
-//    Sequence[19]=ActType::forward_right_side;
-//    Sequence[20]=ActType::forward_right_side_border;
-//    Sequence[21]=ActType::left_turn90;
-//    Sequence[22]=ActType::forward_right_side;
-//    Sequence[23]=ActType::forward_right_side;
-//    Sequence[24]=ActType::forward_right_side;
-//    Sequence[25]=ActType::forward_right_side;
-//    Sequence[26]=ActType::forward_right_side;
-//    Sequence[27]=ActType::forward_right_side;
-//    Sequence[28]=ActType::forward_right_side;
-//    Sequence[29]=ActType::forward_right_side_border;
-//    Sequence[30]=ActType::stop;
-//    Sequence[31]=ActType::back;
-//
-//    ActionSelect(Sequence,31);
+    ActionSelect(Sequence,15);
 
 }
 
 void lay_down_ball()
 {
 	TskTop::LedColor::Type Indicator=TskTop::LedColor::Dark;
+	desiresrc.Omega = 0.f;
+	desiresrc.Velocity = 0.f;
+	TskMotor::QMotor->En(desiresrc);
 	while(TskIr::IrBall == true)
 	{
 		Task_sleep(1000);

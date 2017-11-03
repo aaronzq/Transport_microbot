@@ -266,12 +266,12 @@ void task(UArg arg0, UArg arg1)
 {
 //    IrMsg::MsgType msg;
 
-    IrBins.ch[0] = 0; IrBinThs.ch[0].ThLo = 3100; IrBinThs.ch[0].ThHi = 3500;
-    IrBins.ch[1] = 1; IrBinThs.ch[1].ThLo = 3100; IrBinThs.ch[1].ThHi = 3500;
-    IrBins.ch[2] = 1; IrBinThs.ch[2].ThLo = 3600; IrBinThs.ch[2].ThHi = 3700;
-    IrBins.ch[3] = 1; IrBinThs.ch[3].ThLo = 3300; IrBinThs.ch[3].ThHi = 3500;
-    IrBins.ch[4] = 1; IrBinThs.ch[4].ThLo = 3300; IrBinThs.ch[4].ThHi = 3500;
-    IrBins.ch[5] = 0; IrBinThs.ch[5].ThLo = 3400; IrBinThs.ch[5].ThHi = 3600;
+    IrBins.ch[0] = 0; IrBinThs.ch[0].ThLo = 3000; IrBinThs.ch[0].ThHi = 3500;
+    IrBins.ch[1] = 1; IrBinThs.ch[1].ThLo = 3000; IrBinThs.ch[1].ThHi = 3500;
+    IrBins.ch[2] = 1; IrBinThs.ch[2].ThLo = 3200; IrBinThs.ch[2].ThHi = 3500;
+    IrBins.ch[3] = 1; IrBinThs.ch[3].ThLo = 3000; IrBinThs.ch[3].ThHi = 3500;
+    IrBins.ch[4] = 1; IrBinThs.ch[4].ThLo = 3000; IrBinThs.ch[4].ThHi = 3500;
+    IrBins.ch[5] = 0; IrBinThs.ch[5].ThLo = 3200; IrBinThs.ch[5].ThHi = 3600;
 
     irDetInit();
 

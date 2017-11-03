@@ -3,6 +3,9 @@
  *
  *  Created on: Aug 1, 2014
  *      Author: loywong
+ *  Edited on : June  , 2017
+ *  	Author: aaronzq
+ *
  */
 
 #include <xdc/std.h>
@@ -33,7 +36,7 @@
 
 #include "TskMotor.h"
 #include "MotorPwm.h"
-#include "Imu.h"
+//#include "Imu.h"
 #include "WheelEnc.h"
 
 #include "../Queue/Queue.h"
@@ -46,13 +49,13 @@ namespace TskMotor
 {
 
 
-const float lvPidP = 191.519075602699f;
-const float lvPidI = 3300.4379543161f;
-const float lvPidD = 0.f;//-1.79891050754587f;
-const float lvPidN = 0.f;//688.458615803393f;
+const float lvPidP = 751.519075602699f;
+const float lvPidI = 45000.4379543161f;
+const float lvPidD = -0.39891050754587f;
+const float lvPidN = 688.458615803393f;
 
-const float avPidP = 3.46875141538602f;
-const float avPidI = 76.762778295071f;
+const float avPidP = 55.46875141538602f;
+const float avPidI = 950.762778295071f;
 const float avPidD = 0.f;//-0.065326709136153f;
 const float avPidN = 0.f;//192.064591913073f;
 
@@ -141,7 +144,7 @@ void task(UArg arg0, UArg arg1)
 
         LV = EncVel;
 
-        AV = (EncRVel - EncLVel) * (.5f / PP::W);  //edited Nov 5 2016 by wzq   for wrong setup of encoder
+        AV = (EncRVel - EncLVel)/PP::W ;
 
 
         DistanceAccL += EncLVel * PP::Ts;
@@ -154,7 +157,33 @@ void task(UArg arg0, UArg arg1)
         {
 
             // read dlv&dav from fifo
-            QMotor->De(desire); // dequeue, if empty desire will not change
+            QMotor->De(desire); // dequeue, if empty, desire will not change
+            if(Unit_rspEnable)
+			{
+				if (TskTop::secread<200)
+				{
+					desire.Velocity = 0.f;
+					desire.Omega = 0.f;
+				}
+				else if(TskTop::secread<1000)
+				{
+					if(TskTop::Lvtest)
+					{
+						desire.Velocity = 0.3f;
+						desire.Omega = 0.f;
+					}
+					else
+					{
+						desire.Velocity = 0.f;
+						desire.Omega = 2.f;
+					}
+				}
+				else
+				{
+					desire.Velocity = 0.f;
+					desire.Omega = 0.f;
+				}
+			}
             CurrentV = desire.Velocity;
             lvPidOut = lvPid.Tick(desire.Velocity - LV);
             avPidOut = avPid.Tick(desire.Omega + OmgAdj - AV);
@@ -171,29 +200,6 @@ void task(UArg arg0, UArg arg1)
 				MotorPwmSetDuty(90, 30);
 				Servopwm=ServoPwmTest;
 				ServoPwmSetDuty(Servopwm);
-            }
-
-            if(Unit_rspEnable)
-            {
-            	if (TskTop::secread<9)
-				{
-            		MotorPwmSetDuty(0, 0);
-				}
-            	else if(TskTop::secread<1000)
-            	{
-            		if(TskTop::Lvtest)
-					{
-
-					}
-            		else
-            		{
-
-            		}
-            	}
-            	else
-            	{
-            		MotorPwmSetDuty(0, 0);
-            	}
             }
 
         }

@@ -3,6 +3,8 @@
  *
  *  Created on: Jul 21, 2016
  *      Author: loywong
+ *  Edited on : June  , 2017
+ *  	Author: aaronzq
  */
 #include <ti/sysbios/knl/Task.h>
 #include <ti/sysbios/hal/Hwi.h>
@@ -51,7 +53,7 @@ Task_Handle tsk;
 char dbgStr[80];
 char database[1000][10];
 volatile int secread=0;
-volatile bool Lvtest = true;
+volatile bool Lvtest = false;
 
 volatile MouseMode::ModeType Mode;
 volatile bool Execute=false;
@@ -147,7 +149,7 @@ void unit_rsptest()
 		{
 			if(Lvtest)
 			{
-				sprintf(database[secread], "%7.4f\n",TskMotor::LV);
+				sprintf(database[secread], "%7.4f\n",TskMotor::EncVel);
 			}
 			else
 			{
@@ -155,29 +157,20 @@ void unit_rsptest()
 			}
 			secread++;
 		}
-		else if(secread<2000)
+		else if(secread == 1000)
 		{
 			secread++;
-		}
-		else if(secread==2000)
-		{
-			if(Lvtest)
-			{
-				Lvtest = false;
-				secread = 0;
-				DbgUartPutLine( "LV Unit_response result: \n", true);
-			}
-			else
-			{
-				secread = 2001;
-				DbgUartPutLine( "AV Unit_response result: \n", true);
-			}
+//			DbgUartPutLine( "LV Unit_response result: \n", true);
+			DbgUartPutLine( "AV Unit_response result: \n", true);
 			for(int count=0;count<1000;count++)
 			{
 				DbgUartPutLine(database[count], true);
 			}
 		}
-		else{}
+		else
+		{
+
+		}
     }
 }
 

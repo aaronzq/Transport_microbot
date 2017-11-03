@@ -98,8 +98,8 @@ float WheelEncGetVel(volatile float &r, volatile float &l, volatile int &rp, vol
     lp = (HWREG(QEI1_BASE | QEI_O_STAT) & 0x00000002)?
             -HWREG(QEI1_BASE | QEI_O_SPEED) :
             HWREG(QEI1_BASE | QEI_O_SPEED);
-    r = (float)rp * EncUnit * GearRatio * CP::EncoderUnitCompensation;
-    l = (float)lp * EncUnit * GearRatio * CP::EncoderUnitCompensation;
+    r = (float)rp * EncUnitR * GearRatio * CP::EncoderUnitCompensation;
+    l = (float)lp * EncUnitL * GearRatio * CP::EncoderUnitCompensation;
     return 0.5f * (r + l);
 }
 //---------------------------------------------------

@@ -207,7 +207,6 @@ TskMotor/TskMotor.obj: E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib
 TskMotor/TskMotor.obj: C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Task.h
 TskMotor/TskMotor.obj: E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h
 TskMotor/TskMotor.obj: ../TskMotor/MotorPwm.h
-TskMotor/TskMotor.obj: ../TskMotor/Imu.h
 TskMotor/TskMotor.obj: ../TskMotor/WheelEnc.h
 TskMotor/TskMotor.obj: ../TskMotor/../Queue/Queue.h
 TskMotor/TskMotor.obj: E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h
@@ -423,7 +422,6 @@ E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h:
 C:/ti/tirex-content/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Task.h: 
 E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/string.h: 
 ../TskMotor/MotorPwm.h: 
-../TskMotor/Imu.h: 
 ../TskMotor/WheelEnc.h: 
 ../TskMotor/../Queue/Queue.h: 
 E:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include/stdlib.h: 

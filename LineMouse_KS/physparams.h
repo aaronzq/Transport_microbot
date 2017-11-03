@@ -19,26 +19,27 @@ namespace PP
 {
 //parameter for debug----------------------------
 const float YawUnit=0.052f;   //the absolute value for yaw deviation
-const float TurnRadius = 0.012f;  //the radius of turn 90
+const float TurnRadius = 0.06f;//0.012f;  //the radius of turn 90
 const float TurnBackRadius = 0.06f;  //radius of turning back
 
-const float TurnCompensateCoff = 0.98f;
+const float TurnCompensateCoffL = 0.96f;
+const float TurnCompensateCoffR = 0.96f;
 
 const float start_acc_path = 0.1f;
 const float start_uni_path = 0.1f;
-const float start_yaw_begin= 0.05f;
-const float start_yaw_end  = 0.18f;
+const float start_yaw_begin= 0.02f;
+const float start_yaw_end  = 0.19f;
 
 const float forward_uni_path =0.2f;
-const float forward_yaw_begin=0.03f;
-const float forward_yaw_end  =0.15f;
-const float forward_border_detect_begin = 0.01f;
+const float forward_yaw_begin=0.02f;
+const float forward_yaw_end  =0.19f;
+const float forward_border_detect_begin = 0.f;
 const float forward_backturn_trigger_begin = 0.05f;
 
 const float turn90_uni_path = 0.f;
 const float turn180_uni_path = 0.f;
 
-const float stop_path = 0.02f;
+const float stop_path = 0.08f;
 
 const float back_time = 0.5f;
 
@@ -58,12 +59,12 @@ const float g =      9.80665f;
 // gravity center height
 const float H =      0.005f;
 
-// half of distance between 2 tires
-//const float W =      0.032f;
-const float W =      (0.0735f/2.f);
+// distance between 2 tires
+const float W =      0.0735f;
 // wheel
 //const float RWheel = 0.01175f;
-const float RWheel = 0.017f;
+const float RWheelL = 0.017f;
+const float RWheelR = 0.0165f;
 
 // system sampling period, DO NOT change this independently
 // if Ts changed, consider:
