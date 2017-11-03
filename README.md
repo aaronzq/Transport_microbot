@@ -12,7 +12,7 @@ This repository includes:
 3. the 3D print components (drawn in SolidWorks) -->3D
 
 ## What it can do
-Simple. Trail track using a set of basic motion and direction feedback from the IR sensors. See [Tiny Vehicle](aaeonzq.github.io)
+Simple. Trail track using a set of basic motion and direction feedback from the IR sensors. See [Tiny Vehicle](https://aaronzq.github.io/2017/11/03/transportvehicle/)
 
 ## What else you need
 1. electronic components.(according to the components list       __*todo*__)
